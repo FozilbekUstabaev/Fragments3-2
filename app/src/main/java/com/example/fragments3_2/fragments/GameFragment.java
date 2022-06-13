@@ -71,6 +71,6 @@ public class GameFragment extends Fragment {
         Glide.with(requireContext()).load(model.secondImg).into(binding.secondImg);
         Glide.with(requireContext()).load(model.thirdImg).into(binding.thirdImg);
         Glide.with(requireContext()).load(model.fourthImg).into(binding.fourthImg);
-        binding.countTv.setText(model.count);
+        binding.countTv.setText(model.levelDisplay);
     }
 }
