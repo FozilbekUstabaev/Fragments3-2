@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.bumptech.glide.Glide;
 import com.example.fragments3_2.GameModel;
 import com.example.fragments3_2.databinding.FragmentGameBinding;
 
@@ -32,8 +31,8 @@ public class GameFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        model = (GameModel) getArguments().getSerializable("game");
-        setUI();
+        String level = getArguments().getString("game");
+        setUI(level);
         initClicks();
     }
 
@@ -66,11 +65,11 @@ public class GameFragment extends Fragment {
         });
     }
 
-    private void setUI() {
-        Glide.with(requireContext()).load(model.firstImg).into(binding.firstImg);
-        Glide.with(requireContext()).load(model.secondImg).into(binding.secondImg);
-        Glide.with(requireContext()).load(model.thirdImg).into(binding.thirdImg);
-        Glide.with(requireContext()).load(model.fourthImg).into(binding.fourthImg);
-        binding.countTv.setText(model.levelDisplay);
+    private void setUI(String level) {
+        //   Glide.with(requireContext()).load(model.firstImg).into(binding.firstImg);
+        //  Glide.with(requireContext()).load(model.secondImg).into(binding.secondImg);
+        //  Glide.with(requireContext()).load(model.thirdImg).into(binding.thirdImg);
+        //  Glide.with(requireContext()).load(model.fourthImg).into(binding.fourthImg);
+        binding.countTv.setText(level);
     }
 }
