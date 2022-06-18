@@ -1,5 +1,6 @@
 package com.example.fragments3_2.adapter;
 
+import android.graphics.ColorSpace;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fragments3_2.GameModel;
 import com.example.fragments3_2.ItemClickListener;
 import com.example.fragments3_2.databinding.ItemLevelBinding;
 
@@ -14,10 +16,10 @@ import java.util.ArrayList;
 
 public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.levelViewHolder> {
 
-    ArrayList<String> list;
+    ArrayList<GameModel> list;
     ItemClickListener listener;
 
-    public LevelAdapter(ArrayList<String> list, ItemClickListener listener) {
+    public LevelAdapter(ArrayList<GameModel> list, ItemClickListener listener) {
         this.list = list;
         this.listener = listener;
     }
@@ -47,12 +49,12 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.levelViewHol
             this.binding = binding;
         }
 
-        public void onBind(String level) {
-            binding.btnLvl.setText(level);
+        public void onBind(GameModel model) {
+            binding.btnLvl.setText(model.levelDisplay);
             binding.btnLvl.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.itemClick(level);
+                    listener.itemClick(model);
                 }
             });
         }
